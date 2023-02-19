@@ -10,6 +10,7 @@ specifiers:
   phosphor-react: ^1.4.1
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-hook-form: ^7.43.1
   react-router-dom: ^6.4.3
   styled-components: ^5.3.6
   typescript: ^4.6.4
@@ -19,6 +20,7 @@ dependencies:
   phosphor-react: 1.4.1_react@18.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.43.1_react@18.2.0
   react-router-dom: 6.8.1_biqbaboplfbrettd7655fr4n2y
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
 
@@ -2460,6 +2462,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form/7.43.1_react@18.2.0:
+    resolution: {integrity: sha512-+s3+s8LLytRMriwwuSqeLStVjRXFGxgjjx2jED7Z+wz1J/88vpxieRQGvJVvzrzVxshZ0BRuocFERb779m2kNg==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:
