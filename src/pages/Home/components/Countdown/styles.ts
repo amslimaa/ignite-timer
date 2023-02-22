@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+
 export const CountdownContainer = styled.div`
   font-size: 10rem;
   line-height: 8rem;
