@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react'
-import { CountdownContainer } from '../../styles'
+import { useContext, useEffect, useState } from 'react'
+import { CountdownContainer, Separator } from './styles'
+import { CyclesContext } from '../..'
 import { differenceInSeconds } from 'date-fns'
 
-interface CountdownProps {
-  activeCycle: any
-  setCycles: void
-}
-
-export function Countdown({ activeCycle, setCycles }: CountdownProps) {
-  const totalSeconds = activeCycle ? activeCycle.minutesAmaunt * 60 : 0
+export function Countdown() {
+  const { activeCycle, activeCycleId, markCurrentCycleAsFinished } =
+    useContext(CyclesContext)
 
   const [amauntSecondsPast, setAmauntSecondsPast] = useState(0)
+  const totalSeconds = activeCycle ? activeCycle.minutesAmaunt * 60 : 0
+
   useEffect(() => {
     let interval: number
     if (activeCycle) {
@@ -20,6 +19,7 @@ export function Countdown({ activeCycle, setCycles }: CountdownProps) {
           activeCycle.startDate,
         )
         if (secondsDifference >= totalSeconds) {
+<<<<<<< HEAD
           setCycles((state) =>
             state.map((cycle) => {
               if (cycle.id === activeCycleId) {
@@ -29,6 +29,9 @@ export function Countdown({ activeCycle, setCycles }: CountdownProps) {
               }
             }),
           )
+=======
+          markCurrentCycleAsFinished()
+>>>>>>> d0a1f0c7b4d63e1f71a5deef646da76d006ee2d0
           setAmauntSecondsPast(totalSeconds)
           clearInterval(interval)
         } else {
@@ -39,8 +42,25 @@ export function Countdown({ activeCycle, setCycles }: CountdownProps) {
     return () => {
       clearInterval(interval)
     }
+<<<<<<< HEAD
   }, [activeCycle, activeCycleId, totalSeconds])
 
+=======
+  }, [activeCycle, activeCycleId, totalSeconds, markCurrentCycleAsFinished])
+
+  const currentSeconds = activeCycle ? totalSeconds - amauntSecondsPast : 0
+  const minutesAmaunt = Math.floor(currentSeconds / 60)
+  const secondsAmaunt = currentSeconds % 60
+
+  const minutes = String(minutesAmaunt).padStart(2, '0')
+  const seconds = String(secondsAmaunt).padStart(2, '0')
+
+  useEffect(() => {
+    if (activeCycle) {
+      document.title = `Ignite Timer ${minutes}:${seconds}`
+    }
+  }, [seconds, minutes, activeCycle])
+>>>>>>> d0a1f0c7b4d63e1f71a5deef646da76d006ee2d0
   return (
     <CountdownContainer>
       <span>{minutes[0]}</span>

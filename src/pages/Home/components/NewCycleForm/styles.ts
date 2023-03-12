@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 export const FormContainer = styled.div`
   width: 100%;
   display: flex;
@@ -42,4 +41,8 @@ export const TaskInput = styled(BaseInput)`
 export const MinutesAmountInput = styled(BaseInput)`
   width: 4rem;
   text-align: center;
+<<<<<<< HEAD
 `
+=======
+`
+>>>>>>> d0a1f0c7b4d63e1f71a5deef646da76d006ee2d0
