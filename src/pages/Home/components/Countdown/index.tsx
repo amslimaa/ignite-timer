@@ -19,19 +19,7 @@ export function Countdown() {
           activeCycle.startDate,
         )
         if (secondsDifference >= totalSeconds) {
-<<<<<<< HEAD
-          setCycles((state) =>
-            state.map((cycle) => {
-              if (cycle.id === activeCycleId) {
-                return { ...cycle, finishedDate: new Date() }
-              } else {
-                return cycle
-              }
-            }),
-          )
-=======
           markCurrentCycleAsFinished()
->>>>>>> d0a1f0c7b4d63e1f71a5deef646da76d006ee2d0
           setAmauntSecondsPast(totalSeconds)
           clearInterval(interval)
         } else {
@@ -42,10 +30,6 @@ export function Countdown() {
     return () => {
       clearInterval(interval)
     }
-<<<<<<< HEAD
-  }, [activeCycle, activeCycleId, totalSeconds])
-
-=======
   }, [activeCycle, activeCycleId, totalSeconds, markCurrentCycleAsFinished])
 
   const currentSeconds = activeCycle ? totalSeconds - amauntSecondsPast : 0
@@ -60,7 +44,6 @@ export function Countdown() {
       document.title = `Ignite Timer ${minutes}:${seconds}`
     }
   }, [seconds, minutes, activeCycle])
->>>>>>> d0a1f0c7b4d63e1f71a5deef646da76d006ee2d0
   return (
     <CountdownContainer>
       <span>{minutes[0]}</span>
